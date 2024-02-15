@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { UserButton, SignedOut, SignInButton} from "@clerk/nextjs";
-import { Button } from "./ui/button";
+ 
+import { ThemeToggler } from "./ThemeToggler";
 
 function Header() {
   return (
@@ -19,7 +20,7 @@ function Header() {
             <h1 className="font-bold text-xl">Cloud FileSharer</h1>
         </Link>
 
-        {/* {Theme Toggler} */}
+        <ThemeToggler />
         <div className="px-5 flex space-x-2 items-center">
             <UserButton afterSignOutUrl="/" />  
 
