@@ -20,8 +20,9 @@ function Header() {
             <h1 className="font-bold text-xl">Cloud FileSharer</h1>
         </Link>
 
-        <ThemeToggler />
+        
         <div className="px-5 flex space-x-2 items-center">
+        <ThemeToggler />
             <UserButton afterSignOutUrl="/" />  
 
             <SignedOut>
