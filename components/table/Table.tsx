@@ -19,6 +19,7 @@ import { FileType } from "@/typings"
 import { Button } from "../ui/button"
 import { Pencil1Icon, TrashIcon } from "@radix-ui/react-icons"
 import { useAppStore } from "@/store/store"
+import { DeleteModal } from "../DeleteModal"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -47,7 +48,7 @@ export function DataTable<TData, TValue>({
   const openRenameModal = (fileId: string, filename: string) => {
     setFileId(fileId);
     setFilename(filename);
-    setIsDeleteModalOpen(true);
+    setIsRenameModalOpen(true);
   }
   return (
     <div className="rounded-md border">
@@ -77,6 +78,7 @@ export function DataTable<TData, TValue>({
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
+                <DeleteModal />
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {cell.column.id === 'timestamp' ? (
