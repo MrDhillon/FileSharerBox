@@ -36,20 +36,30 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
   })
 
-  const [fileId, setFileId, setIsDeleteModalOpen, setIsRenameModalOpen] = 
-    useAppStore(state => [
-      state.fileId, state.setFileId, state.setIsDeleteModalOpen, state.setIsRenameModalOpen
-    ]);
-
+  const [
+    setFileId,
+    setFilename,
+    setIsDeleteModalOpen,
+    setIsRenameModalOpen
+  ] = useAppStore((state) => [
+    state.setFileId,
+    state.setFilename, // Corrected from state.setFileId
+    state.setIsDeleteModalOpen,
+    state.setIsRenameModalOpen
+  ]);
+   
   const openDeleteModal = (fileId: string) => {
     setFileId(fileId);
+  
     setIsDeleteModalOpen(true);
-  }
+    console.log("It ran");
+  };
+
   const openRenameModal = (fileId: string, filename: string) => {
     setFileId(fileId);
     setFilename(filename);
     setIsRenameModalOpen(true);
-  }
+  };
   return (
     <div className="rounded-md border">
       <Table>
